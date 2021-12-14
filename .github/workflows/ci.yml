@@ -13,8 +13,13 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --json --json-file-output=snyk.json
-      - name: Upload results artifact
-        uses: actions/upload-artifact@v2
-        with: 
-           name: results
-           path: ./snyk.json
+          
+      - name: Checkmarx AST CLI Action
+        uses: checkmarxDev/ast-github-action@hackathon
+        with:
+          project_name: galactica-hackathon
+          base_uri: https://ast-master.dev.cxast.net/
+          cx_tenant: galactica
+          cx_client_id: HACKATHON_CLIENT
+          cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+          additional_params: --external-results ./snyk.json
