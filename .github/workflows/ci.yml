@@ -19,7 +19,7 @@ jobs:
         with:
           project_name: galactica-hackathon
           base_uri: https://ee96-62-48-243-86.ngrok.io
-          cx_tenant: galactica
+          cx_tenant: organization
           cx_client_id: HACKATHON_CLIENT
           cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
           additional_params: --external-results ./snyk.json
