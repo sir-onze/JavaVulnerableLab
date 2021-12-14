@@ -12,7 +12,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --json
+          args: --json --json-file-output=snyk.json
       - name: Upload results artifact
         uses: actions/upload-artifact@v2
         with: 
